@@ -2,9 +2,9 @@
 
 """
 ***************************************************************************
-    ModelerUtils.py
+    OutputString.py
     ---------------------
-    Date                 : August 2012
+    Date                 : October 2012
     Copyright            : (C) 2012 by Victor Olaya
     Email                : volayaf at gmail dot com
 ***************************************************************************
@@ -23,37 +23,12 @@ __copyright__ = '(C) 2012, Victor Olaya'
 # This will get replaced with a git SHA1 when you do a git archive
 __revision__ = '$Format:%H$'
 
-import os
-from sextante.core.SextanteUtils import mkdir
-from sextante.core.SextanteConfig import SextanteConfig
+from sextante.outputs.Output import Output
 
-class ModelerUtils:
+class OutputString(Output):
 
-    MODELS_FOLDER = "MODELS_FOLDER"
-    ACTIVATE_MODELS = "ACTIVATE_MODELS"
-
-    @staticmethod
-    def modelsFolder():
-        folder = SextanteConfig.getSetting(ModelerUtils.MODELS_FOLDER)
-        if folder == None:
-            folder = os.path.join(os.path.dirname(__file__), "models")
-        mkdir(folder)
-
-        return folder
-
-    @staticmethod
-    def getAlgorithm(name):
-        for provider in ModelerUtils.allAlgs.values():
-            if name in provider:
-                return provider[name]
-        return None
-
-
-    @staticmethod
-    def getAlgorithms():
-        return ModelerUtils.allAlgs
-
-
-
-
-
+    def __init__(self, name="", description=""):
+        self.name = name
+        self.description = description
+        self.value = None
+        self.hidden = True
