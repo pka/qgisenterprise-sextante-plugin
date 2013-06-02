@@ -199,8 +199,7 @@ class GeoAlgorithm:
                     features = QGisLayers.features(layer)
                     for feature in features:
                         writer.addFeature(feature)
-            elif isinstance(out, OutputRaster):
-                out.close()
+            elif isinstance(out, OutputRaster):                
                 if out.compatible is not None:
                     layer = QGisLayers.getObjectFromUri(out.compatible)
                     provider = layer.dataProvider()
