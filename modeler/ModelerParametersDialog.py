@@ -284,7 +284,7 @@ class ModelerParametersDialog(QtGui.QDialog):
         files = []
         params = self.model.parameters
         for param in params:
-            if isinstance(param, ParameterFile):
+            if isinstance(param, ParameterFile) or isinstance(param, ParameterString):
                 files.append(AlgorithmAndParameter(AlgorithmAndParameter.PARENT_MODEL_ALGORITHM, param.name, "", param.description))
 
         if self.algIndex is None:
