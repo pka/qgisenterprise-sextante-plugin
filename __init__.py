@@ -26,13 +26,13 @@ __copyright__ = '(C) 2012, Victor Olaya'
 __revision__ = '$Format:%H$'
 
 def name():
-    return "SEXTANTE"
+    return "SEXTANTE QGIS Enterprise"
 
 def description():
     return "SEXTANTE Geoprocessing Platform for QGIS"
 
 def version():
-    return "1.0.9"
+    return "1.0.9.1"
 
 def icon():
     return "images/toolbox.png"
