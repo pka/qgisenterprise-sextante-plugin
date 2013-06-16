@@ -43,7 +43,7 @@ from sextante.modeler.ModelerOnlyAlgorithmProvider import ModelerOnlyAlgorithmPr
 try:
   from sextante.algs.QGISAlgorithmProvider import QGISAlgorithmProvider
 except ImportError:
-  pass
+  from sextante.algs18.QGISAlgorithmProvider import QGISAlgorithmProvider
 from sextante.grass.GrassAlgorithmProvider import GrassAlgorithmProvider
 from sextante.lidar.LidarToolsAlgorithmProvider import LidarToolsAlgorithmProvider
 from sextante.gdal.GdalOgrAlgorithmProvider import GdalOgrAlgorithmProvider
@@ -122,10 +122,7 @@ class Sextante:
     @staticmethod
     def initialize():
         #add the basic providers
-        try:
-          Sextante.addProvider(QGISAlgorithmProvider())
-        except NameError:
-          pass
+        Sextante.addProvider(QGISAlgorithmProvider())
         Sextante.addProvider(ModelerOnlyAlgorithmProvider())
         Sextante.addProvider(GdalOgrAlgorithmProvider())
         Sextante.addProvider(LidarToolsAlgorithmProvider())
